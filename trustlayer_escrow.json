@@ -1,0 +1,3047 @@
+{
+  "address": "99bimYMBRnPkLjFS8CTVy2aUUyoWNC9rLXpaLqUWr7Lb",
+  "metadata": {
+    "name": "trustlayer_escrow",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "TrustLayer token-aware escrow program"
+  },
+  "instructions": [
+    {
+      "name": "admin_resolve_refund",
+      "discriminator": [
+        227,
+        143,
+        18,
+        108,
+        25,
+        0,
+        106,
+        230
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true,
+          "address": "EWMn7d8QLMu1azzgNTyGA3vMub5yMaVJYc7Fxdjad7Q6"
+        },
+        {
+          "name": "buyer",
+          "writable": true
+        },
+        {
+          "name": "initiator",
+          "writable": true
+        },
+        {
+          "name": "fee_receiver",
+          "writable": true,
+          "address": "CMcXTJKpD5YPgLhoh8eacbe6S9ptRGasJhoDgy1yRny3"
+        },
+        {
+          "name": "escrow",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        },
+        {
+          "name": "milestone_index",
+          "type": "u8"
+        },
+        {
+          "name": "initiator",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "admin_resolve_refund_ax",
+      "discriminator": [
+        86,
+        47,
+        121,
+        134,
+        62,
+        168,
+        0,
+        122
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true,
+          "address": "EWMn7d8QLMu1azzgNTyGA3vMub5yMaVJYc7Fxdjad7Q6"
+        },
+        {
+          "name": "user_a",
+          "writable": true
+        },
+        {
+          "name": "user_b",
+          "writable": true
+        },
+        {
+          "name": "fee_receiver",
+          "writable": true,
+          "address": "CMcXTJKpD5YPgLhoh8eacbe6S9ptRGasJhoDgy1yRny3"
+        },
+        {
+          "name": "mint_a"
+        },
+        {
+          "name": "mint_b"
+        },
+        {
+          "name": "user_a_token_account",
+          "writable": true
+        },
+        {
+          "name": "user_b_token_account",
+          "writable": true
+        },
+        {
+          "name": "fee_token",
+          "writable": true
+        },
+        {
+          "name": "ax_token_a",
+          "writable": true
+        },
+        {
+          "name": "ax_token_b",
+          "writable": true
+        },
+        {
+          "name": "ax",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  120
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "deal_id"
+              },
+              {
+                "kind": "account",
+                "path": "ax.user_a",
+                "account": "AxSwap"
+              },
+              {
+                "kind": "account",
+                "path": "ax.user_b",
+                "account": "AxSwap"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program_a"
+        },
+        {
+          "name": "token_program_b"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "admin_resolve_refund_spl",
+      "discriminator": [
+        116,
+        172,
+        152,
+        221,
+        242,
+        26,
+        211,
+        82
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true,
+          "address": "EWMn7d8QLMu1azzgNTyGA3vMub5yMaVJYc7Fxdjad7Q6"
+        },
+        {
+          "name": "buyer",
+          "writable": true
+        },
+        {
+          "name": "initiator",
+          "writable": true
+        },
+        {
+          "name": "fee_receiver",
+          "docs": [
+            "It is constrained by address = TRUSTLAYER_FEE_RECEIVER."
+          ],
+          "writable": true,
+          "address": "CMcXTJKpD5YPgLhoh8eacbe6S9ptRGasJhoDgy1yRny3"
+        },
+        {
+          "name": "escrow",
+          "writable": true
+        },
+        {
+          "name": "mint_account"
+        },
+        {
+          "name": "escrow_token_account",
+          "writable": true
+        },
+        {
+          "name": "buyer_token_account",
+          "writable": true
+        },
+        {
+          "name": "fee_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        },
+        {
+          "name": "milestone_index",
+          "type": "u8"
+        },
+        {
+          "name": "initiator",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "admin_resolve_release",
+      "discriminator": [
+        227,
+        9,
+        135,
+        193,
+        63,
+        99,
+        92,
+        241
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true,
+          "address": "EWMn7d8QLMu1azzgNTyGA3vMub5yMaVJYc7Fxdjad7Q6"
+        },
+        {
+          "name": "buyer",
+          "writable": true
+        },
+        {
+          "name": "initiator",
+          "writable": true
+        },
+        {
+          "name": "seller",
+          "writable": true
+        },
+        {
+          "name": "fee_receiver",
+          "writable": true,
+          "address": "CMcXTJKpD5YPgLhoh8eacbe6S9ptRGasJhoDgy1yRny3"
+        },
+        {
+          "name": "escrow",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        },
+        {
+          "name": "milestone_index",
+          "type": "u8"
+        },
+        {
+          "name": "initiator",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "admin_resolve_release_ax",
+      "discriminator": [
+        10,
+        211,
+        84,
+        208,
+        102,
+        35,
+        218,
+        3
+      ],
+      "accounts": [
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "user_a",
+          "writable": true
+        },
+        {
+          "name": "user_b",
+          "writable": true
+        },
+        {
+          "name": "user_a_settlement_destination",
+          "writable": true
+        },
+        {
+          "name": "user_b_settlement_destination",
+          "writable": true
+        },
+        {
+          "name": "fee_receiver",
+          "writable": true,
+          "address": "CMcXTJKpD5YPgLhoh8eacbe6S9ptRGasJhoDgy1yRny3"
+        },
+        {
+          "name": "mint_a"
+        },
+        {
+          "name": "mint_b"
+        },
+        {
+          "name": "ax_token_a",
+          "writable": true
+        },
+        {
+          "name": "ax_token_b",
+          "writable": true
+        },
+        {
+          "name": "dest_b_token_a",
+          "writable": true
+        },
+        {
+          "name": "dest_a_token_b",
+          "writable": true
+        },
+        {
+          "name": "fee_token",
+          "writable": true
+        },
+        {
+          "name": "ax",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  120
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "deal_id"
+              },
+              {
+                "kind": "account",
+                "path": "ax.user_a",
+                "account": "AxSwap"
+              },
+              {
+                "kind": "account",
+                "path": "ax.user_b",
+                "account": "AxSwap"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program_a"
+        },
+        {
+          "name": "token_program_b"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "admin_resolve_release_spl",
+      "discriminator": [
+        129,
+        183,
+        206,
+        57,
+        36,
+        103,
+        232,
+        108
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true,
+          "address": "EWMn7d8QLMu1azzgNTyGA3vMub5yMaVJYc7Fxdjad7Q6"
+        },
+        {
+          "name": "buyer",
+          "writable": true
+        },
+        {
+          "name": "initiator",
+          "writable": true
+        },
+        {
+          "name": "seller",
+          "writable": true
+        },
+        {
+          "name": "fee_receiver",
+          "docs": [
+            "It is constrained by address = TRUSTLAYER_FEE_RECEIVER."
+          ],
+          "writable": true,
+          "address": "CMcXTJKpD5YPgLhoh8eacbe6S9ptRGasJhoDgy1yRny3"
+        },
+        {
+          "name": "escrow",
+          "writable": true
+        },
+        {
+          "name": "mint_account"
+        },
+        {
+          "name": "escrow_token_account",
+          "writable": true
+        },
+        {
+          "name": "seller_token_account",
+          "writable": true
+        },
+        {
+          "name": "fee_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        },
+        {
+          "name": "milestone_index",
+          "type": "u8"
+        },
+        {
+          "name": "initiator",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "cancel_ax",
+      "discriminator": [
+        195,
+        62,
+        103,
+        184,
+        83,
+        252,
+        114,
+        200
+      ],
+      "accounts": [
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "user_a",
+          "writable": true
+        },
+        {
+          "name": "user_b",
+          "writable": true
+        },
+        {
+          "name": "mint_a"
+        },
+        {
+          "name": "mint_b"
+        },
+        {
+          "name": "user_a_token_account",
+          "writable": true
+        },
+        {
+          "name": "user_b_token_account",
+          "writable": true
+        },
+        {
+          "name": "ax_token_a",
+          "writable": true
+        },
+        {
+          "name": "ax_token_b",
+          "writable": true
+        },
+        {
+          "name": "ax",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  120
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "deal_id"
+              },
+              {
+                "kind": "account",
+                "path": "ax.user_a",
+                "account": "AxSwap"
+              },
+              {
+                "kind": "account",
+                "path": "ax.user_b",
+                "account": "AxSwap"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program_a"
+        },
+        {
+          "name": "token_program_b"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "cancel_by_seller",
+      "discriminator": [
+        32,
+        252,
+        43,
+        185,
+        2,
+        184,
+        112,
+        85
+      ],
+      "accounts": [
+        {
+          "name": "seller",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "buyer",
+          "writable": true
+        },
+        {
+          "name": "initiator",
+          "writable": true
+        },
+        {
+          "name": "fee_receiver",
+          "docs": [
+            "It is constrained by address = TRUSTLAYER_FEE_RECEIVER."
+          ],
+          "writable": true,
+          "address": "CMcXTJKpD5YPgLhoh8eacbe6S9ptRGasJhoDgy1yRny3"
+        },
+        {
+          "name": "escrow",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        },
+        {
+          "name": "milestone_index",
+          "type": "u8"
+        },
+        {
+          "name": "initiator",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "cancel_spl",
+      "discriminator": [
+        147,
+        74,
+        147,
+        41,
+        28,
+        118,
+        70,
+        94
+      ],
+      "accounts": [
+        {
+          "name": "seller",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "buyer",
+          "writable": true
+        },
+        {
+          "name": "initiator",
+          "writable": true
+        },
+        {
+          "name": "fee_receiver",
+          "docs": [
+            "It is constrained by address = TRUSTLAYER_FEE_RECEIVER."
+          ],
+          "writable": true,
+          "address": "CMcXTJKpD5YPgLhoh8eacbe6S9ptRGasJhoDgy1yRny3"
+        },
+        {
+          "name": "escrow",
+          "writable": true
+        },
+        {
+          "name": "mint_account"
+        },
+        {
+          "name": "escrow_token_account",
+          "writable": true
+        },
+        {
+          "name": "buyer_token_account",
+          "writable": true
+        },
+        {
+          "name": "fee_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        },
+        {
+          "name": "milestone_index",
+          "type": "u8"
+        },
+        {
+          "name": "initiator",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "cancel_unfunded",
+      "discriminator": [
+        7,
+        11,
+        92,
+        226,
+        201,
+        56,
+        156,
+        158
+      ],
+      "accounts": [
+        {
+          "name": "party",
+          "signer": true
+        },
+        {
+          "name": "initiator",
+          "writable": true
+        },
+        {
+          "name": "buyer"
+        },
+        {
+          "name": "seller"
+        },
+        {
+          "name": "escrow",
+          "writable": true
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        },
+        {
+          "name": "milestone_index",
+          "type": "u8"
+        },
+        {
+          "name": "initiator",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "cancel_unfunded_ax",
+      "docs": [
+        "Close a fully unfunded Ax draft; rent to user_a (initiator)."
+      ],
+      "discriminator": [
+        63,
+        14,
+        94,
+        180,
+        244,
+        212,
+        190,
+        10
+      ],
+      "accounts": [
+        {
+          "name": "party",
+          "signer": true
+        },
+        {
+          "name": "user_a",
+          "writable": true
+        },
+        {
+          "name": "user_b"
+        },
+        {
+          "name": "ax",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  120
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "deal_id"
+              },
+              {
+                "kind": "account",
+                "path": "ax.user_a",
+                "account": "AxSwap"
+              },
+              {
+                "kind": "account",
+                "path": "ax.user_b",
+                "account": "AxSwap"
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "create_ax",
+      "discriminator": [
+        159,
+        16,
+        163,
+        211,
+        195,
+        4,
+        215,
+        129
+      ],
+      "accounts": [
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "user_a"
+        },
+        {
+          "name": "user_b"
+        },
+        {
+          "name": "ax",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  120
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "deal_id"
+              },
+              {
+                "kind": "account",
+                "path": "user_a"
+              },
+              {
+                "kind": "account",
+                "path": "user_b"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        },
+        {
+          "name": "amount_a",
+          "type": "u64"
+        },
+        {
+          "name": "amount_b",
+          "type": "u64"
+        },
+        {
+          "name": "settlement_fee_amount",
+          "type": "u64"
+        },
+        {
+          "name": "release_mode",
+          "type": {
+            "defined": {
+              "name": "AxReleaseMode"
+            }
+          }
+        },
+        {
+          "name": "release_authority",
+          "type": "pubkey"
+        },
+        {
+          "name": "user_a_settlement_destination",
+          "type": "pubkey"
+        },
+        {
+          "name": "user_b_settlement_destination",
+          "type": "pubkey"
+        },
+        {
+          "name": "expiry_timestamp",
+          "type": "i64"
+        },
+        {
+          "name": "earliest_settlement_timestamp",
+          "type": "i64"
+        },
+        {
+          "name": "asset_type_a",
+          "type": {
+            "defined": {
+              "name": "AssetType"
+            }
+          }
+        },
+        {
+          "name": "asset_type_b",
+          "type": {
+            "defined": {
+              "name": "AssetType"
+            }
+          }
+        },
+        {
+          "name": "mint_a",
+          "type": "pubkey"
+        },
+        {
+          "name": "mint_b",
+          "type": "pubkey"
+        },
+        {
+          "name": "token_program_a",
+          "type": "pubkey"
+        },
+        {
+          "name": "token_program_b",
+          "type": "pubkey"
+        },
+        {
+          "name": "fee_source_leg",
+          "type": "u8"
+        },
+        {
+          "name": "fee_payer",
+          "type": {
+            "defined": {
+              "name": "FeePayer"
+            }
+          }
+        },
+        {
+          "name": "cnft_nonce_a",
+          "type": "u64"
+        },
+        {
+          "name": "cnft_nonce_b",
+          "type": "u64"
+        },
+        {
+          "name": "cnft_tree_a",
+          "type": "pubkey"
+        },
+        {
+          "name": "cnft_tree_b",
+          "type": "pubkey"
+        },
+        {
+          "name": "nft_asset_id_a",
+          "type": "pubkey"
+        },
+        {
+          "name": "nft_asset_id_b",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "create_ax_split",
+      "docs": [
+        "Same as `create_ax`, but with explicit per-leg platform fees (fee_a / fee_b),",
+        "each in that leg's fee asset (SOL/SPL for fungible legs, SOL lamports for NFT legs)."
+      ],
+      "discriminator": [
+        162,
+        95,
+        54,
+        239,
+        255,
+        179,
+        217,
+        67
+      ],
+      "accounts": [
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "user_a"
+        },
+        {
+          "name": "user_b"
+        },
+        {
+          "name": "ax",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  120
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "deal_id"
+              },
+              {
+                "kind": "account",
+                "path": "user_a"
+              },
+              {
+                "kind": "account",
+                "path": "user_b"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        },
+        {
+          "name": "amount_a",
+          "type": "u64"
+        },
+        {
+          "name": "amount_b",
+          "type": "u64"
+        },
+        {
+          "name": "fee_a",
+          "type": "u64"
+        },
+        {
+          "name": "fee_b",
+          "type": "u64"
+        },
+        {
+          "name": "release_mode",
+          "type": {
+            "defined": {
+              "name": "AxReleaseMode"
+            }
+          }
+        },
+        {
+          "name": "release_authority",
+          "type": "pubkey"
+        },
+        {
+          "name": "user_a_settlement_destination",
+          "type": "pubkey"
+        },
+        {
+          "name": "user_b_settlement_destination",
+          "type": "pubkey"
+        },
+        {
+          "name": "expiry_timestamp",
+          "type": "i64"
+        },
+        {
+          "name": "earliest_settlement_timestamp",
+          "type": "i64"
+        },
+        {
+          "name": "asset_type_a",
+          "type": {
+            "defined": {
+              "name": "AssetType"
+            }
+          }
+        },
+        {
+          "name": "asset_type_b",
+          "type": {
+            "defined": {
+              "name": "AssetType"
+            }
+          }
+        },
+        {
+          "name": "mint_a",
+          "type": "pubkey"
+        },
+        {
+          "name": "mint_b",
+          "type": "pubkey"
+        },
+        {
+          "name": "token_program_a",
+          "type": "pubkey"
+        },
+        {
+          "name": "token_program_b",
+          "type": "pubkey"
+        },
+        {
+          "name": "fee_payer",
+          "type": {
+            "defined": {
+              "name": "FeePayer"
+            }
+          }
+        },
+        {
+          "name": "cnft_nonce_a",
+          "type": "u64"
+        },
+        {
+          "name": "cnft_nonce_b",
+          "type": "u64"
+        },
+        {
+          "name": "cnft_tree_a",
+          "type": "pubkey"
+        },
+        {
+          "name": "cnft_tree_b",
+          "type": "pubkey"
+        },
+        {
+          "name": "nft_asset_id_a",
+          "type": "pubkey"
+        },
+        {
+          "name": "nft_asset_id_b",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "create_escrow",
+      "discriminator": [
+        253,
+        215,
+        165,
+        116,
+        36,
+        108,
+        68,
+        80
+      ],
+      "accounts": [
+        {
+          "name": "buyer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "seller"
+        },
+        {
+          "name": "escrow",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        },
+        {
+          "name": "milestone_index",
+          "type": "u8"
+        },
+        {
+          "name": "milestone_count",
+          "type": "u8"
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        },
+        {
+          "name": "settlement_fee_amount",
+          "type": "u64"
+        },
+        {
+          "name": "seller",
+          "type": "pubkey"
+        },
+        {
+          "name": "deadline",
+          "type": "i64"
+        },
+        {
+          "name": "asset_type",
+          "type": {
+            "defined": {
+              "name": "AssetType"
+            }
+          }
+        },
+        {
+          "name": "mint",
+          "type": "pubkey"
+        },
+        {
+          "name": "fee_payer",
+          "type": {
+            "defined": {
+              "name": "FeePayer"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "create_invoice",
+      "discriminator": [
+        154,
+        170,
+        31,
+        135,
+        134,
+        100,
+        156,
+        146
+      ],
+      "accounts": [
+        {
+          "name": "seller",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "buyer"
+        },
+        {
+          "name": "escrow",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        },
+        {
+          "name": "milestone_index",
+          "type": "u8"
+        },
+        {
+          "name": "milestone_count",
+          "type": "u8"
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        },
+        {
+          "name": "settlement_fee_amount",
+          "type": "u64"
+        },
+        {
+          "name": "buyer",
+          "type": "pubkey"
+        },
+        {
+          "name": "deadline",
+          "type": "i64"
+        },
+        {
+          "name": "asset_type",
+          "type": {
+            "defined": {
+              "name": "AssetType"
+            }
+          }
+        },
+        {
+          "name": "mint",
+          "type": "pubkey"
+        },
+        {
+          "name": "fee_payer",
+          "type": {
+            "defined": {
+              "name": "FeePayer"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "fund_ax",
+      "discriminator": [
+        226,
+        16,
+        22,
+        227,
+        31,
+        249,
+        161,
+        18
+      ],
+      "accounts": [
+        {
+          "name": "funder",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "funder_token_account",
+          "writable": true
+        },
+        {
+          "name": "ax_token_account",
+          "writable": true
+        },
+        {
+          "name": "ax",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  120
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "deal_id"
+              },
+              {
+                "kind": "account",
+                "path": "ax.user_a",
+                "account": "AxSwap"
+              },
+              {
+                "kind": "account",
+                "path": "ax.user_b",
+                "account": "AxSwap"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        },
+        {
+          "name": "leg",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "fund_escrow",
+      "discriminator": [
+        155,
+        18,
+        218,
+        141,
+        182,
+        213,
+        69,
+        201
+      ],
+      "accounts": [
+        {
+          "name": "buyer",
+          "writable": true,
+          "signer": true,
+          "relations": [
+            "escrow"
+          ]
+        },
+        {
+          "name": "escrow",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        },
+        {
+          "name": "milestone_index",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "fund_escrow_spl",
+      "discriminator": [
+        1,
+        137,
+        40,
+        139,
+        85,
+        101,
+        166,
+        186
+      ],
+      "accounts": [
+        {
+          "name": "buyer",
+          "writable": true,
+          "signer": true,
+          "relations": [
+            "escrow"
+          ]
+        },
+        {
+          "name": "mint_account"
+        },
+        {
+          "name": "buyer_token_account",
+          "writable": true
+        },
+        {
+          "name": "escrow_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "escrow",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        },
+        {
+          "name": "milestone_index",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "fund_invoice",
+      "discriminator": [
+        216,
+        254,
+        189,
+        107,
+        87,
+        170,
+        154,
+        240
+      ],
+      "accounts": [
+        {
+          "name": "buyer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "seller"
+        },
+        {
+          "name": "escrow",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        },
+        {
+          "name": "milestone_index",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "fund_invoice_spl",
+      "discriminator": [
+        11,
+        21,
+        100,
+        255,
+        9,
+        173,
+        122,
+        14
+      ],
+      "accounts": [
+        {
+          "name": "buyer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "seller"
+        },
+        {
+          "name": "mint_account"
+        },
+        {
+          "name": "buyer_token_account",
+          "writable": true
+        },
+        {
+          "name": "escrow_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "escrow",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        },
+        {
+          "name": "milestone_index",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "open_dispute",
+      "discriminator": [
+        137,
+        25,
+        99,
+        119,
+        23,
+        223,
+        161,
+        42
+      ],
+      "accounts": [
+        {
+          "name": "opener",
+          "docs": [
+            "Buyer or seller who opens the dispute."
+          ],
+          "signer": true
+        },
+        {
+          "name": "initiator"
+        },
+        {
+          "name": "escrow",
+          "writable": true
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        },
+        {
+          "name": "milestone_index",
+          "type": "u8"
+        },
+        {
+          "name": "initiator",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "open_dispute_ax",
+      "discriminator": [
+        113,
+        107,
+        154,
+        9,
+        33,
+        100,
+        114,
+        22
+      ],
+      "accounts": [
+        {
+          "name": "opener",
+          "signer": true
+        },
+        {
+          "name": "user_a"
+        },
+        {
+          "name": "user_b"
+        },
+        {
+          "name": "ax",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  120
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "deal_id"
+              },
+              {
+                "kind": "account",
+                "path": "ax.user_a",
+                "account": "AxSwap"
+              },
+              {
+                "kind": "account",
+                "path": "ax.user_b",
+                "account": "AxSwap"
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "reclaim_ax",
+      "discriminator": [
+        91,
+        35,
+        144,
+        7,
+        25,
+        88,
+        123,
+        32
+      ],
+      "accounts": [
+        {
+          "name": "party",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "party_token_account",
+          "writable": true
+        },
+        {
+          "name": "ax_token_account",
+          "writable": true
+        },
+        {
+          "name": "ax",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  120
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "deal_id"
+              },
+              {
+                "kind": "account",
+                "path": "ax.user_a",
+                "account": "AxSwap"
+              },
+              {
+                "kind": "account",
+                "path": "ax.user_b",
+                "account": "AxSwap"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        },
+        {
+          "name": "leg",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "release",
+      "discriminator": [
+        253,
+        249,
+        15,
+        206,
+        28,
+        127,
+        193,
+        241
+      ],
+      "accounts": [
+        {
+          "name": "buyer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "initiator",
+          "writable": true
+        },
+        {
+          "name": "seller",
+          "writable": true
+        },
+        {
+          "name": "fee_receiver",
+          "docs": [
+            "It is constrained by address = TRUSTLAYER_FEE_RECEIVER."
+          ],
+          "writable": true,
+          "address": "CMcXTJKpD5YPgLhoh8eacbe6S9ptRGasJhoDgy1yRny3"
+        },
+        {
+          "name": "escrow",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        },
+        {
+          "name": "milestone_index",
+          "type": "u8"
+        },
+        {
+          "name": "initiator",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "release_ax",
+      "discriminator": [
+        113,
+        201,
+        171,
+        29,
+        194,
+        210,
+        193,
+        23
+      ],
+      "accounts": [
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "user_a",
+          "writable": true
+        },
+        {
+          "name": "user_b",
+          "writable": true
+        },
+        {
+          "name": "user_a_settlement_destination",
+          "writable": true
+        },
+        {
+          "name": "user_b_settlement_destination",
+          "writable": true
+        },
+        {
+          "name": "fee_receiver",
+          "writable": true,
+          "address": "CMcXTJKpD5YPgLhoh8eacbe6S9ptRGasJhoDgy1yRny3"
+        },
+        {
+          "name": "mint_a"
+        },
+        {
+          "name": "mint_b"
+        },
+        {
+          "name": "ax_token_a",
+          "writable": true
+        },
+        {
+          "name": "ax_token_b",
+          "writable": true
+        },
+        {
+          "name": "dest_b_token_a",
+          "writable": true
+        },
+        {
+          "name": "dest_a_token_b",
+          "writable": true
+        },
+        {
+          "name": "fee_token",
+          "writable": true
+        },
+        {
+          "name": "ax",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  120
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "deal_id"
+              },
+              {
+                "kind": "account",
+                "path": "ax.user_a",
+                "account": "AxSwap"
+              },
+              {
+                "kind": "account",
+                "path": "ax.user_b",
+                "account": "AxSwap"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program_a"
+        },
+        {
+          "name": "token_program_b"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "release_spl",
+      "discriminator": [
+        115,
+        22,
+        93,
+        89,
+        235,
+        139,
+        53,
+        130
+      ],
+      "accounts": [
+        {
+          "name": "buyer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "initiator",
+          "writable": true
+        },
+        {
+          "name": "seller",
+          "writable": true
+        },
+        {
+          "name": "fee_receiver",
+          "docs": [
+            "It is constrained by address = TRUSTLAYER_FEE_RECEIVER."
+          ],
+          "writable": true,
+          "address": "CMcXTJKpD5YPgLhoh8eacbe6S9ptRGasJhoDgy1yRny3"
+        },
+        {
+          "name": "escrow",
+          "writable": true
+        },
+        {
+          "name": "mint_account"
+        },
+        {
+          "name": "escrow_token_account",
+          "writable": true
+        },
+        {
+          "name": "seller_token_account",
+          "writable": true
+        },
+        {
+          "name": "fee_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "deal_id",
+          "type": "u64"
+        },
+        {
+          "name": "milestone_index",
+          "type": "u8"
+        },
+        {
+          "name": "initiator",
+          "type": "pubkey"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "AxSwap",
+      "discriminator": [
+        17,
+        66,
+        5,
+        44,
+        83,
+        37,
+        142,
+        81
+      ]
+    },
+    {
+      "name": "Escrow",
+      "discriminator": [
+        31,
+        213,
+        123,
+        187,
+        186,
+        22,
+        218,
+        155
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "InvalidAmount",
+      "msg": "Invalid amount"
+    },
+    {
+      "code": 6001,
+      "name": "InvalidDeadline",
+      "msg": "Invalid deadline"
+    },
+    {
+      "code": 6002,
+      "name": "DeadlineTooSoon",
+      "msg": "Deadline is too soon"
+    },
+    {
+      "code": 6003,
+      "name": "InvalidSettlementFee",
+      "msg": "Invalid settlement fee"
+    },
+    {
+      "code": 6004,
+      "name": "InvalidRefundFee",
+      "msg": "Invalid refund fee"
+    },
+    {
+      "code": 6005,
+      "name": "InvalidCancellationFee",
+      "msg": "Invalid cancellation fee"
+    },
+    {
+      "code": 6006,
+      "name": "EscrowNotActive",
+      "msg": "Escrow is not active"
+    },
+    {
+      "code": 6007,
+      "name": "EscrowNotFunded",
+      "msg": "Escrow is not funded"
+    },
+    {
+      "code": 6008,
+      "name": "EscrowAlreadyFunded",
+      "msg": "Escrow is already funded"
+    },
+    {
+      "code": 6009,
+      "name": "InvalidDealId",
+      "msg": "Invalid deal ID"
+    },
+    {
+      "code": 6010,
+      "name": "InvalidInitiator",
+      "msg": "Invalid initiator account"
+    },
+    {
+      "code": 6011,
+      "name": "InvalidBuyer",
+      "msg": "Invalid buyer account"
+    },
+    {
+      "code": 6012,
+      "name": "InvalidSeller",
+      "msg": "Invalid seller account"
+    },
+    {
+      "code": 6013,
+      "name": "InvalidEscrowOrigin",
+      "msg": "Invalid escrow origin"
+    },
+    {
+      "code": 6014,
+      "name": "DeadlineNotReached",
+      "msg": "Deadline has not been reached yet"
+    },
+    {
+      "code": 6015,
+      "name": "InvalidFeeReceiver",
+      "msg": "Invalid TrustLayer fee receiver"
+    },
+    {
+      "code": 6016,
+      "name": "MathOverflow",
+      "msg": "Arithmetic overflow"
+    },
+    {
+      "code": 6017,
+      "name": "InsufficientEscrowBalance",
+      "msg": "Escrow does not contain enough locked funds"
+    },
+    {
+      "code": 6018,
+      "name": "InsufficientFeeFunds",
+      "msg": "Escrow does not contain enough funds to cover the TrustLayer fee"
+    },
+    {
+      "code": 6019,
+      "name": "InvalidAssetType",
+      "msg": "Invalid asset type"
+    },
+    {
+      "code": 6020,
+      "name": "UnsupportedMint",
+      "msg": "Unsupported SPL mint"
+    },
+    {
+      "code": 6021,
+      "name": "InvalidTokenProgram",
+      "msg": "Invalid token program"
+    },
+    {
+      "code": 6022,
+      "name": "InvalidTokenMint",
+      "msg": "Invalid token mint"
+    },
+    {
+      "code": 6023,
+      "name": "InvalidTokenDecimals",
+      "msg": "Invalid token decimals"
+    },
+    {
+      "code": 6024,
+      "name": "InvalidTokenAccount",
+      "msg": "Invalid token account"
+    },
+    {
+      "code": 6025,
+      "name": "InvalidTokenAccountOwner",
+      "msg": "Invalid token account owner"
+    },
+    {
+      "code": 6026,
+      "name": "InvalidEscrowTokenAccount",
+      "msg": "Invalid escrow token account"
+    },
+    {
+      "code": 6027,
+      "name": "InsufficientTokenBalance",
+      "msg": "Insufficient token balance"
+    },
+    {
+      "code": 6028,
+      "name": "MissingMintAccount",
+      "msg": "Missing SPL mint account"
+    },
+    {
+      "code": 6029,
+      "name": "MissingTokenProgram",
+      "msg": "Missing token program"
+    },
+    {
+      "code": 6030,
+      "name": "MissingBuyerTokenAccount",
+      "msg": "Missing buyer token account"
+    },
+    {
+      "code": 6031,
+      "name": "MissingSellerTokenAccount",
+      "msg": "Missing seller token account"
+    },
+    {
+      "code": 6032,
+      "name": "MissingEscrowTokenAccount",
+      "msg": "Missing escrow token account"
+    },
+    {
+      "code": 6033,
+      "name": "MissingFeeTokenAccount",
+      "msg": "Missing TrustLayer fee token account"
+    },
+    {
+      "code": 6034,
+      "name": "MissingAssociatedTokenProgram",
+      "msg": "Missing associated token program"
+    },
+    {
+      "code": 6035,
+      "name": "TokenTransferFailed",
+      "msg": "Token transfer failed"
+    },
+    {
+      "code": 6036,
+      "name": "TokenAccountCloseFailed",
+      "msg": "Token account close failed"
+    },
+    {
+      "code": 6037,
+      "name": "EscrowDisputed",
+      "msg": "Escrow is disputed — release and cancel are frozen"
+    },
+    {
+      "code": 6038,
+      "name": "EscrowNotDisputed",
+      "msg": "Escrow is not in disputed state"
+    },
+    {
+      "code": 6039,
+      "name": "UnauthorizedDisputeOpener",
+      "msg": "Only the buyer or seller may open a dispute"
+    },
+    {
+      "code": 6040,
+      "name": "UnauthorizedAdmin",
+      "msg": "Unauthorized TrustLayer admin"
+    },
+    {
+      "code": 6041,
+      "name": "DisputeNotAllowed",
+      "msg": "Dispute can only be opened on a funded active escrow"
+    },
+    {
+      "code": 6042,
+      "name": "InvalidMilestone",
+      "msg": "Invalid milestone index or count"
+    },
+    {
+      "code": 6043,
+      "name": "AxNotActive",
+      "msg": "Ax swap is not active"
+    },
+    {
+      "code": 6044,
+      "name": "AxLegAlreadyFunded",
+      "msg": "Ax leg is already funded"
+    },
+    {
+      "code": 6045,
+      "name": "AxLegNotFunded",
+      "msg": "Ax leg is not funded"
+    },
+    {
+      "code": 6046,
+      "name": "AxLegsNotFullyFunded",
+      "msg": "Both Ax legs must be funded to release"
+    },
+    {
+      "code": 6047,
+      "name": "AxExpired",
+      "msg": "Ax release window has expired"
+    },
+    {
+      "code": 6048,
+      "name": "AxTooEarly",
+      "msg": "Ax release is not yet allowed"
+    },
+    {
+      "code": 6049,
+      "name": "AxUnauthorizedRelease",
+      "msg": "Unauthorized Ax release signer"
+    },
+    {
+      "code": 6050,
+      "name": "AxUnauthorizedCancel",
+      "msg": "Unauthorized Ax cancel signer"
+    },
+    {
+      "code": 6051,
+      "name": "AxUnauthorizedReclaim",
+      "msg": "Unauthorized Ax reclaim signer"
+    },
+    {
+      "code": 6052,
+      "name": "AxInvalidLeg",
+      "msg": "Invalid Ax leg"
+    },
+    {
+      "code": 6053,
+      "name": "AxInvalidReleaseMode",
+      "msg": "Invalid Ax release mode or authority"
+    },
+    {
+      "code": 6054,
+      "name": "AxMintsMustDiffer",
+      "msg": "Ax mints must differ when both fungible"
+    },
+    {
+      "code": 6055,
+      "name": "AxInvalidParty",
+      "msg": "Invalid Ax party"
+    },
+    {
+      "code": 6056,
+      "name": "InvalidFeePayer",
+      "msg": "Invalid fee payer"
+    },
+    {
+      "code": 6057,
+      "name": "InvalidNftAmount",
+      "msg": "NFT amount must be 1"
+    },
+    {
+      "code": 6058,
+      "name": "FeeFromNftNotAllowed",
+      "msg": "Fee cannot be taken from an NFT leg"
+    },
+    {
+      "code": 6059,
+      "name": "CnftRequiresBubblegum",
+      "msg": "cNFT operations require Bubblegum remaining accounts / adapter"
+    },
+    {
+      "code": 6060,
+      "name": "PnftRequiresAuthAccounts",
+      "msg": "pNFT transfer requires token record / authorization accounts"
+    },
+    {
+      "code": 6061,
+      "name": "UnsupportedAssetTypeForPath",
+      "msg": "Unsupported asset type for this instruction path"
+    },
+    {
+      "code": 6062,
+      "name": "InvalidFeeSourceLeg",
+      "msg": "Invalid fee source leg"
+    },
+    {
+      "code": 6063,
+      "name": "InvalidNftMint",
+      "msg": "NFT mint must have 0 decimals and supply 1"
+    },
+    {
+      "code": 6064,
+      "name": "FeeExceedsCap",
+      "msg": "Platform fee exceeds the allowed ceiling"
+    },
+    {
+      "code": 6065,
+      "name": "AxNotDisputed",
+      "msg": "Ax deal is not in disputed state"
+    },
+    {
+      "code": 6066,
+      "name": "UseCreateAxSplit",
+      "msg": "Use create_ax_split; legacy single-fee Ax creation is disabled"
+    },
+    {
+      "code": 6067,
+      "name": "UseCancelUnfunded",
+      "msg": "Use cancel_unfunded to close a draft and return rent to its initiator"
+    },
+    {
+      "code": 6068,
+      "name": "PartyReleaseExpired",
+      "msg": "Party release is no longer allowed after the deal deadline"
+    },
+    {
+      "code": 6069,
+      "name": "DisputeNotStale",
+      "msg": "Ax dispute is not stale yet; only admin may resolve"
+    },
+    {
+      "code": 6070,
+      "name": "FeeBelowMinimum",
+      "msg": "Fee below on-chain minimum for this asset"
+    },
+    {
+      "code": 6071,
+      "name": "SolPrincipalTooSmall",
+      "msg": "Native SOL amount below minimum principal"
+    },
+    {
+      "code": 6072,
+      "name": "NftRequiresClassicToken",
+      "msg": "NFT mint must use the classic Token program this wave"
+    }
+  ],
+  "types": [
+    {
+      "name": "AssetType",
+      "docs": [
+        "Solana asset kind supported by TrustLayer escrow + Ax."
+      ],
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "NativeSol"
+          },
+          {
+            "name": "Spl"
+          },
+          {
+            "name": "Nft"
+          },
+          {
+            "name": "Pnft"
+          },
+          {
+            "name": "Cnft"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AxReleaseMode",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Parties"
+          },
+          {
+            "name": "Authority"
+          },
+          {
+            "name": "AuthorityOrParties"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AxStatus",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Active"
+          },
+          {
+            "name": "Released"
+          },
+          {
+            "name": "Cancelled"
+          },
+          {
+            "name": "Refunded"
+          },
+          {
+            "name": "Disputed"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AxSwap",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "deal_id",
+            "type": "u64"
+          },
+          {
+            "name": "user_a",
+            "type": "pubkey"
+          },
+          {
+            "name": "user_b",
+            "type": "pubkey"
+          },
+          {
+            "name": "asset_type_a",
+            "type": {
+              "defined": {
+                "name": "AssetType"
+              }
+            }
+          },
+          {
+            "name": "asset_type_b",
+            "type": {
+              "defined": {
+                "name": "AssetType"
+              }
+            }
+          },
+          {
+            "name": "mint_a",
+            "type": "pubkey"
+          },
+          {
+            "name": "mint_b",
+            "type": "pubkey"
+          },
+          {
+            "name": "decimals_a",
+            "type": "u8"
+          },
+          {
+            "name": "decimals_b",
+            "type": "u8"
+          },
+          {
+            "name": "token_program_a",
+            "type": "pubkey"
+          },
+          {
+            "name": "token_program_b",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount_a",
+            "type": "u64"
+          },
+          {
+            "name": "amount_b",
+            "type": "u64"
+          },
+          {
+            "name": "settlement_fee_bps",
+            "docs": [
+              "Legacy single-rate metadata; non-authoritative for Ax, especially split-fee deals."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "settlement_fee_amount",
+            "docs": [
+              "Legacy single-fee metadata; non-authoritative for split Ax deals (see per-leg fields)."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "settlement_fee_a",
+            "docs": [
+              "Per-leg fee: same asset as leg if fungible; SOL lamports if NFT leg."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "settlement_fee_b",
+            "type": "u64"
+          },
+          {
+            "name": "sol_fee_locked_a",
+            "type": "u64"
+          },
+          {
+            "name": "sol_fee_locked_b",
+            "type": "u64"
+          },
+          {
+            "name": "fee_source_leg",
+            "docs": [
+              "0 = fee on A, 1 = fee on B, 2 = split both legs."
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "fee_payer",
+            "type": {
+              "defined": {
+                "name": "FeePayer"
+              }
+            }
+          },
+          {
+            "name": "release_mode",
+            "type": {
+              "defined": {
+                "name": "AxReleaseMode"
+              }
+            }
+          },
+          {
+            "name": "release_authority",
+            "type": "pubkey"
+          },
+          {
+            "name": "user_a_settlement_destination",
+            "type": "pubkey"
+          },
+          {
+            "name": "user_b_settlement_destination",
+            "type": "pubkey"
+          },
+          {
+            "name": "expiry_timestamp",
+            "type": "i64"
+          },
+          {
+            "name": "earliest_settlement_timestamp",
+            "type": "i64"
+          },
+          {
+            "name": "funded_a",
+            "type": "bool"
+          },
+          {
+            "name": "funded_b",
+            "type": "bool"
+          },
+          {
+            "name": "locked_a",
+            "type": "u64"
+          },
+          {
+            "name": "locked_b",
+            "type": "u64"
+          },
+          {
+            "name": "both_funded_at",
+            "docs": [
+              "Set once when both legs first become funded. Ax expiry clock starts here."
+            ],
+            "type": "i64"
+          },
+          {
+            "name": "disputed_at",
+            "docs": [
+              "Set when open_dispute_ax succeeds."
+            ],
+            "type": "i64"
+          },
+          {
+            "name": "expiry_duration_seconds",
+            "docs": [
+              "Seconds after both_funded_at until party release expires (from create inputs)."
+            ],
+            "type": "i64"
+          },
+          {
+            "name": "status",
+            "type": {
+              "defined": {
+                "name": "AxStatus"
+              }
+            }
+          },
+          {
+            "name": "created_at",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "cnft_nonce_a",
+            "type": "u64"
+          },
+          {
+            "name": "cnft_nonce_b",
+            "type": "u64"
+          },
+          {
+            "name": "cnft_tree_a",
+            "type": "pubkey"
+          },
+          {
+            "name": "cnft_tree_b",
+            "type": "pubkey"
+          },
+          {
+            "name": "nft_asset_id_a",
+            "type": "pubkey"
+          },
+          {
+            "name": "nft_asset_id_b",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Escrow",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "deal_id",
+            "type": "u64"
+          },
+          {
+            "name": "milestone_index",
+            "type": "u8"
+          },
+          {
+            "name": "milestone_count",
+            "type": "u8"
+          },
+          {
+            "name": "initiator",
+            "type": "pubkey"
+          },
+          {
+            "name": "origin",
+            "type": {
+              "defined": {
+                "name": "EscrowOrigin"
+              }
+            }
+          },
+          {
+            "name": "buyer",
+            "type": "pubkey"
+          },
+          {
+            "name": "seller",
+            "type": "pubkey"
+          },
+          {
+            "name": "asset_type",
+            "type": {
+              "defined": {
+                "name": "AssetType"
+              }
+            }
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "decimals",
+            "type": "u8"
+          },
+          {
+            "name": "token_program",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "settlement_fee_bps",
+            "type": "u16"
+          },
+          {
+            "name": "settlement_fee_amount",
+            "type": "u64"
+          },
+          {
+            "name": "refund_fee_bps",
+            "type": "u16"
+          },
+          {
+            "name": "refund_fee_amount",
+            "type": "u64"
+          },
+          {
+            "name": "cancellation_fee_bps",
+            "docs": [
+              "Always 0 — TrustLayer does not charge cancel fees."
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "cancellation_fee_amount",
+            "type": "u64"
+          },
+          {
+            "name": "fee_payer",
+            "docs": [
+              "Who economically pays settlement fee (and refund fee source)."
+            ],
+            "type": {
+              "defined": {
+                "name": "FeePayer"
+              }
+            }
+          },
+          {
+            "name": "funded",
+            "type": "bool"
+          },
+          {
+            "name": "sol_fee_locked",
+            "docs": [
+              "SOL lamports locked for NFT platform fee (0 for fungible)."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "total_locked",
+            "type": "u64"
+          },
+          {
+            "name": "created_at",
+            "type": "i64"
+          },
+          {
+            "name": "deadline",
+            "type": "i64"
+          },
+          {
+            "name": "status",
+            "type": {
+              "defined": {
+                "name": "EscrowStatus"
+              }
+            }
+          },
+          {
+            "name": "dispute_opened_at",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "cnft_nonce",
+            "docs": [
+              "Leaf id / nonce for cNFT; 0 if N/A."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "cnft_tree",
+            "docs": [
+              "Merkle tree id for cNFT; default if N/A."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "nft_asset_id",
+            "docs": [
+              "Asset id / data hash placeholder for cNFT/pNFT client verification."
+            ],
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "EscrowOrigin",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "BuyerCreated"
+          },
+          {
+            "name": "SellerCreated"
+          }
+        ]
+      }
+    },
+    {
+      "name": "EscrowStatus",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Active"
+          },
+          {
+            "name": "Released"
+          },
+          {
+            "name": "Refunded"
+          },
+          {
+            "name": "CancelledBySeller"
+          },
+          {
+            "name": "Disputed"
+          }
+        ]
+      }
+    },
+    {
+      "name": "FeePayer",
+      "docs": [
+        "Who bears settlement fee economically."
+      ],
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Funder"
+          },
+          {
+            "name": "Receiver"
+          }
+        ]
+      }
+    }
+  ],
+  "constants": [
+    {
+      "name": "DEFAULT_CANCELLATION_FEE_BPS",
+      "docs": [
+        "Cancellation fee: 0.2% (20 bps). Unfunded cancel may still be free off-chain policy."
+      ],
+      "type": "u16",
+      "value": "20"
+    },
+    {
+      "name": "DEFAULT_REFUND_FEE_BPS",
+      "type": "u16",
+      "value": "50"
+    },
+    {
+      "name": "DEFAULT_SETTLEMENT_FEE_BPS",
+      "type": "u16",
+      "value": "250"
+    },
+    {
+      "name": "MAX_FEE_BPS",
+      "type": "u16",
+      "value": "1000"
+    },
+    {
+      "name": "MAX_MILESTONES",
+      "type": "u8",
+      "value": "10"
+    },
+    {
+      "name": "MIN_ESCROW_DURATION_SECONDS",
+      "docs": [
+        "Optional minimum gap when a deadline timestamp is still supplied",
+        "at create time. 1-leg deadline is metadata only — it does NOT block party release. Ax expiry duration starts when both legs are funded."
+      ],
+      "type": "i64",
+      "value": "60"
+    },
+    {
+      "name": "MIN_MILESTONES",
+      "type": "u8",
+      "value": "1"
+    },
+    {
+      "name": "TRUSTLAYER_ADMIN",
+      "type": "pubkey",
+      "value": "EWMn7d8QLMu1azzgNTyGA3vMub5yMaVJYc7Fxdjad7Q6"
+    },
+    {
+      "name": "TRUSTLAYER_FEE_RECEIVER",
+      "type": "pubkey",
+      "value": "CMcXTJKpD5YPgLhoh8eacbe6S9ptRGasJhoDgy1yRny3"
+    }
+  ]
+}
